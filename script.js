@@ -76,13 +76,13 @@ window.addEventListener("touchmove", (dets) => {
                     opacity: 0
                 }, "a")
                 tl.to(".details", {
-                    y: `-140%`,
+                    bottom:`0%`
                 }, "a")
                 tl.to(".details", {
                     duration: 0.6,
                     filter: `blur(0px)`,
                     opacity: 1,
-                    y: `-160%`,
+                    bottom:`15%`
                 }, "c")
             }
         }
