@@ -63,7 +63,7 @@ window.addEventListener("touchmove", (dets) => {
                     y: `-450%`,
                     scale: 1.7
                 }, "a")
-                
+
                 tl.to(".swiper", {
                     backgroundColor: `rgb(114, 190, 0)`,
                     duration: 0.6,
@@ -71,18 +71,18 @@ window.addEventListener("touchmove", (dets) => {
                 }, "a")
                 tl.to(".payed", {
                     opacity: 1
-                },"c")
+                }, "c")
                 tl.to(".init", {
                     opacity: 0
                 }, "a")
                 tl.to(".details", {
-                    bottom:`0%`
+                    bottom: `0%`
                 }, "a")
                 tl.to(".details", {
                     duration: 0.6,
                     filter: `blur(0px)`,
                     opacity: 1,
-                    bottom:`15%`
+                    bottom: `15%`
                 }, "c")
             }
         }
@@ -100,4 +100,30 @@ swiper_btn.addEventListener("touchend", (dets) => {
         })
     }
 
+})
+
+
+
+
+
+let display = document.querySelector(".display")
+let sts = false
+display.addEventListener("click", () => {
+    if (!sts) {
+        display.classList.add("h-screen","-mt-14")
+        display.classList.remove("h-64")
+        document.querySelector(".close").classList.remove("opacity-0")
+        document.querySelector(".close").classList.add("opacity-1")
+        sts = true
+    }
+})
+document.querySelector(".close").addEventListener("click", (e) => {
+    e.stopPropagation()
+    if (sts) {
+        display.classList.remove("h-screen","-mt-14")
+        display.classList.add("h-64")
+        document.querySelector(".close").classList.remove("opacity-1")
+        document.querySelector(".close").classList.add("opacity-0")
+        sts = false
+    }
 })
