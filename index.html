@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        @font-face {
+            font-family: sfpro;
+            src: url("./SF-Pro-Text-Regular.otf");
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 0.5fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+            place-items: center;
+        }
+
+        body {
+            perspective: 300px;
+        }
+
+        /* .yyy{
+            transform: rotateX(15deg);
+        } */
+        .hello {
+            color: transparent;
+            background: linear-gradient(90deg, #444, #444, #e5e5e5, #444);
+            background-clip: text;
+            background-position: 200% 0%;
+            background-size: 200%;
+            animation: hello linear infinite 7s;
+        }
+
+        @keyframes hello {
+
+
+            100% {
+                background-position: -200% 0%;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body class="bg-[#111] text-[#e5e5e5] overflow-hidden font-[sfpro] pt-10 flex items-center relative  flex-col ">
+    <div class="display yyy h-28 w-full shrink-0 px-2">
+        <div class="card bg-black/50 backdrop-blur-[5px] w-full px-4 h-full rounded-3xl flex items-center gap-2">
+            <img src="./pngwing.com.png" alt="master-card" class="h-10 ">
+            <div class="user leading-none flex flex-col gap-1">
+                <h1 class="text-base leading-none">Sudip Acharya</h1>
+                <p class="text-sm tracking-wider leading-none">xxxx xxxx xxxx 0721</p>
+
+            </div>
+        </div>
+    </div>
+    <div class=" h-fit yyy  w-full py-4 flex flex-col items-center justify-center gap-2">
+        <p class="text-[11px] tracking-wider font-light text-gray-400">ENTER AMOUNT</p>
+        <div
+            class="amount text-2xl font-semibold py-3 px-5 bg-gray-700/60 rounded-full flex items-center justify-center">
+            <p>$ <span>271.00</span></p>
+        </div>
+    </div>
+    <div class="buttons ttt  px-4 pb-4  grid gap-y-10 mt-4 w-full ">
+        <div class="button h-full w-full flex items-center group justify-center text-[34px]">
+            1
+        </div>
+        <div class="button h-full w-full flex items-center group justify-center text-[34px]">
+            2
+        </div>
+        <div class="button h-full w-full flex items-center group justify-center text-[34px]">
+            3
+        </div>
+        <div class="button h-full w-full flex items-center group justify-center text-[34px]">
+            4
+        </div>
+        <div class="button h-full w-full flex items-center group justify-center text-[34px]">
+            5
+        </div>
+        <div class="button h-full w-full flex items-center group justify-center text-[34px]">
+            6
+        </div>
+        <div class="button h-full w-full flex items-center group justify-center text-[34px]">
+            7
+        </div>
+        <div class="button h-full w-full flex items-center group justify-center text-[34px]">
+            8
+        </div>
+        <div class="button h-full w-full flex items-center group justify-center text-[34px]">
+            9
+        </div>
+        <div class="button h-full w-full flex items-center group justify-center text-[34px]">
+            .
+        </div>
+        <div class="button h-full w-full flex items-center group justify-center text-[34px]">
+            0
+        </div>
+        <div class="button h-full w-full flex items-center group justify-center text-[34px]">
+            C
+        </div>
+
+    </div>
+    <div class="swipe flex-col w-full h-36 p-4 flex  items-center">
+        <div
+            class="conter  overflow-hidden h-24 bg-black/40 rounded-full w-full flex items-center justify-start p-2 relative">
+            <div style="background-color: rgb(107, 114, 128);"
+                class="swiper h-20 w-20 flex items-center justify-center  rounded-full">
+                <div class="conttt relative w-full h-full flex items-center justify-center">
+                    <i class="init ri-arrow-right-line opacity-1 text-[40px] "></i>
+                    <div class="payed h-full w-full flex items-center opacity-0 justify-center absolute">
+                        <div class="small h-12  w-2 bg-white rotate-[50deg]  translate-x-3"></div>
+                        <div class="big w-2 h-5  bg-white -rotate-45  -translate-x-4 translate-y-2"></div>
+                    </div>
+
+                </div>
+            </div>
+            <p class="absolute hello left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 text-lg ">Swipe
+                to Confirm</p>
+        </div>
+    </div>
+
+    </div>
+    <div
+        class="details absolute  opacity-0 blur-[16px] -bottom-[35%]  bg-[linear-gradient(45deg,#333,#444)] p-5 py-6 w-[90%] rounded-3xl flex flex-col gap-2">
+        <div class="name flex items-center justify-between">
+            <h1>Card Holder </h1>
+            <p>Sudip Acharya</p>
+        </div>
+        <div class="number flex items-center justify-between">
+            <h1>Card Number </h1>
+            <p>xxxx xxxx xxxx 0721</p>
+        </div>
+        <div class="id flex items-center justify-between">
+            <h1>Payment Id </h1>
+            <p>4DXLQYZ3P</p>
+        </div>
+        <div class="amount flex items-center justify-between">
+            <h1>Amount </h1>
+            <p>$<span>271.00</span></p>
+        </div>
+        <div class="date flex items-center justify-between">
+            <h1>Payment Date </h1>
+            <p>19 Aug 2024</p>
+        </div>
+        <div class="powered flex items-center gap-2 ">
+            <h1>Powered by </h1>
+            <img src="pngwing.com.png" class="h-10" alt="">
+            <img src="pngwing.com (1).png" class="h-14" alt="">
+        </div>
+        <a href="/"
+            class="reload absolute w-full -ml-5 text-center text-lg py-2 mt-2 rounded-3xl bg-[#72BF20] font-semibold top-[100%]">
+            Done
+        </a>
+    </div>
+
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
