@@ -82,8 +82,14 @@ let cont_right = cont.getBoundingClientRect().right
 
 swiper_btn.addEventListener("touchstart", (dets) => {
     started = true
+
 })
 let go = 0
+function hhss() {
+    if (navigator.vibrate) {
+        window.navigator.vibrate([50, 10, 50]);
+    }
+}
 
 window.addEventListener("touchmove", (dets) => {
     cord = dets.touches[0].clientX;
@@ -98,75 +104,90 @@ window.addEventListener("touchmove", (dets) => {
 
             }
             if ((go + 40) >= cont_right - 80 + 8) {
-                [a, b, c] = [named.value, number.value]
-                let randomString = Math.random().toString(36).substring(2, 10).toUpperCase().replace(/[0-9]/g, (d) => '0123456789'[Math.floor(Math.random() * 10)]);
+                [a, b] = [named.value, number.value]
+                if (a && b && str.length > 0) {
+                    let randomString = Math.random().toString(36).substring(2, 10).toUpperCase().replace(/[0-9]/g, (d) => '0123456789'[Math.floor(Math.random() * 10)]);
 
-                document.querySelector(".name").innerHTML = a
-                document.querySelector(".number").innerHTML = b
-                document.querySelector(".pay-id").innerHTML = randomString
-                document.querySelector(".pay-date").innerHTML = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })
-                document.querySelector(".amount-fi").innerHTML = (str.length == 0) ? "0" : str.join("");
-                
-                payed = true
-                started = false
-                go = 0
-                gsap.to(".hello", {
-                    opacity: 0,
-                    duration: 0.1
-                })
-                gsap.to(".swiper", {
-                    x: go,
-                    duration: 0.4,
-                })
-                gsap.to(".yyy", {
-                    filter: `blur(20px)`,
-                    y: `-140`,
-                    scale: 0.9,
-                    duration: 0.7,
-                    opacity: 0
-                })
-                gsap.to(".ttt", {
-                    filter: `blur(40px)`,
-                    y: `-140`,
-                    scale: 0.9,
-                    duration: 1.4,
-                    opacity: 0,
-                    delay: 0.4
-                })
-                let tl = gsap.timeline()
-                tl.to(cont, {
-                    height: `100px`,
-                    width: `100px`,
-                    padding: 8,
-                    justifyContent: `center`,
-                    duration: 0.4,
-                })
-                tl.to(cont, {
-                    duration: 0.6,
-                    y: `-450%`,
-                    scale: 1.7
-                }, "a")
+                    document.querySelector(".name").innerHTML = a
+                    document.querySelector(".number").innerHTML = b
+                    document.querySelector(".pay-id").innerHTML = randomString
+                    document.querySelector(".pay-date").innerHTML = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })
+                    document.querySelector(".amount-fi").innerHTML = (str.length == 0) ? "0" : str.join("");
 
-                tl.to(".swiper", {
-                    backgroundColor: `rgb(114, 190, 0)`,
-                    duration: 0.6,
+                    payed = true
+                    started = false
+                    go = 0
+                    gsap.to(".hello", {
+                        opacity: 0,
+                        duration: 0.1
+                    })
+                    gsap.to(".swiper", {
+                        x: go,
+                        duration: 0.4,
+                    })
+                    gsap.to(".yyy", {
+                        filter: `blur(20px)`,
+                        y: `-140`,
+                        scale: 0.9,
+                        duration: 0.7,
+                        opacity: 0
+                    })
+                    gsap.to(".ttt", {
+                        filter: `blur(40px)`,
+                        y: `-140`,
+                        scale: 0.9,
+                        duration: 1.4,
+                        opacity: 0,
+                        delay: 0.4
+                    })
+                    let tl = gsap.timeline()
+                    tl.to(cont, {
+                        height: `100px`,
+                        width: `100px`,
+                        padding: 8,
+                        justifyContent: `center`,
+                        duration: 0.4,
+                    })
+                    tl.to(cont, {
+                        duration: 0.6,
+                        y: `-450%`,
+                        scale: 1.7
+                    }, "a")
 
-                }, "a")
-                tl.to(".payed", {
-                    opacity: 1
-                }, "c")
-                tl.to(".init", {
-                    opacity: 0
-                }, "a")
-                tl.to(".details", {
-                    bottom: `0%`
-                }, "a")
-                tl.to(".details", {
-                    duration: 0.6,
-                    filter: `blur(0px)`,
-                    opacity: 1,
-                    bottom: `15%`
-                }, "c")
+                    tl.to(".swiper", {
+                        backgroundColor: `rgb(114, 190, 0)`,
+                        duration: 0.6,
+
+                    }, "a")
+                    tl.to(".payed", {
+                        opacity: 1
+                    }, "c")
+                    tl.to(".init", {
+                        opacity: 0
+                    }, "a")
+                    tl.to(".details", {
+                        bottom: `0%`
+                    }, "a")
+                    tl.to(".details", {
+                        duration: 0.6,
+                        filter: `blur(0px)`,
+                        opacity: 1,
+                        bottom: `15%`
+                    }, "c")
+                }
+                else {
+                    hhss()
+                    started = false
+                    let kdl = gsap.timeline()
+                    kdl.to(".swiper", {
+                        x: 0,
+                        duration: 0.4,
+                        backgroundColor: `rgb(255,0,0)`
+                    })
+                    kdl.to(".swiper", {
+                        backgroundColor: `rgb(107,114,128)`
+                    })
+                }
             }
         }
     }
