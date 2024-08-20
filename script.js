@@ -87,7 +87,7 @@ swiper_btn.addEventListener("touchstart", (dets) => {
 let go = 0
 function hhss() {
     if (navigator.vibrate) {
-        window.navigator.vibrate([50, 10, 50]);
+        window.navigator.vibrate([50, 70, 30]);
     }
 }
 
