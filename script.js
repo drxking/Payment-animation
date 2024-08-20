@@ -1,6 +1,78 @@
 let swiper_btn = document.querySelector(".swiper")
 let cont = document.querySelector(".conter")
 
+
+let named = document.querySelector(".holder-name")
+let number = document.querySelector(".card-number")
+
+
+let str = []
+let amountImp = document.querySelector(".amount-inp")
+let del = document.querySelector(".del")
+let clr = document.querySelector(".clr")
+let buttons = document.querySelectorAll(".button")
+amountImp.innerHTML = 0;
+buttons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+
+        if (str.length <= 3) {
+            str.push(btn.dataset.num)
+            if (str[0] == "0") {
+                str = []
+                amountImp.innerHTML = 0;
+            }
+            else {
+                amountImp.innerHTML = str.join("");
+            }
+        }
+    })
+    btn.addEventListener("touchstart", () => {
+        let tl = gsap.timeline()
+        tl.to(btn, {
+            backgroundColor: `rgba(68,68,68,0.1)`,
+            duration: 0.1
+        })
+        tl.to(btn, {
+            backgroundColor: `transparent`,
+            duration: 0.1
+        })
+    })
+
+})
+
+
+
+
+clr.addEventListener("click", (e) => {
+    str = []
+    amountImp.innerHTML = 0;
+
+})
+
+del.addEventListener("click", (e) => {
+    str.pop()
+    amountImp.innerHTML = (str.length !== 0) ? str.join("") : "0";
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let cord = 0;
 let started = false
 let payed = false
@@ -12,6 +84,7 @@ swiper_btn.addEventListener("touchstart", (dets) => {
     started = true
 })
 let go = 0
+
 window.addEventListener("touchmove", (dets) => {
     cord = dets.touches[0].clientX;
     go = cord - left - 40
@@ -25,6 +98,15 @@ window.addEventListener("touchmove", (dets) => {
 
             }
             if ((go + 40) >= cont_right - 80 + 8) {
+                [a, b, c] = [named.value, number.value]
+                let randomString = Math.random().toString(36).substring(2, 10).toUpperCase().replace(/[0-9]/g, (d) => '0123456789'[Math.floor(Math.random() * 10)]);
+
+                document.querySelector(".name").innerHTML = a
+                document.querySelector(".number").innerHTML = b
+                document.querySelector(".pay-id").innerHTML = randomString
+                document.querySelector(".pay-date").innerHTML = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })
+                document.querySelector(".amount-fi").innerHTML = (str.length == 0) ? "0" : str.join("");
+                
                 payed = true
                 started = false
                 go = 0
@@ -44,11 +126,12 @@ window.addEventListener("touchmove", (dets) => {
                     opacity: 0
                 })
                 gsap.to(".ttt", {
-                    filter: `blur(20px)`,
+                    filter: `blur(40px)`,
                     y: `-140`,
-                    // scale: 1.1,
-                    duration: 0.4,
-                    opacity: 0
+                    scale: 0.9,
+                    duration: 1.4,
+                    opacity: 0,
+                    delay: 0.4
                 })
                 let tl = gsap.timeline()
                 tl.to(cont, {
@@ -110,7 +193,7 @@ let display = document.querySelector(".display")
 let sts = false
 display.addEventListener("click", () => {
     if (!sts) {
-        display.classList.add("h-screen","-mt-14")
+        display.classList.add("h-screen", "-mt-14")
         display.classList.remove("h-64")
         document.querySelector(".close").classList.remove("opacity-0")
         document.querySelector(".close").classList.add("opacity-1")
@@ -120,10 +203,11 @@ display.addEventListener("click", () => {
 document.querySelector(".close").addEventListener("click", (e) => {
     e.stopPropagation()
     if (sts) {
-        display.classList.remove("h-screen","-mt-14")
+        display.classList.remove("h-screen", "-mt-14")
         display.classList.add("h-64")
         document.querySelector(".close").classList.remove("opacity-1")
         document.querySelector(".close").classList.add("opacity-0")
         sts = false
     }
 })
+

@@ -31,7 +31,7 @@
         } */
         .hello {
             color: transparent;
-            background: linear-gradient(90deg, #444, #444, #e5e5e5, #444);
+            background: linear-gradient(90deg, #444444, #444, #e5e5e5, #444);
             background-clip: text;
             background-position: 200% 0%;
             background-size: 200%;
@@ -50,7 +50,8 @@
     </style>
 </head>
 
-<body class="bg-[#111] text-[#e5e5e5] overflow-hidden font-[sfpro] pt-5 flex items-center relative  flex-col ">
+<body
+    class="bg-[#111] text-[#e5e5e5] md:max-w-md overflow-hidden font-[sfpro] pt-5 flex items-center relative  flex-col ">
     <div class="display yyy h-56 flex items-center justify-center w-full duration-700 relative">
 
 
@@ -59,67 +60,82 @@
             <img src="./pngwing.com.png" alt="master-card" class="h-10 absolute right-2 bottom-4">
             <div class="user leading-none flex flex-col gap-1 ">
                 <img src="./pngwin.png" class="h-14 w-12 absolute top-4 left-4 scale-125 rotate-90" alt="">
-                <input type="text"
-                    class="text-xl leading-none bg-transparent absolute bottom-4 w-fit focus:outline-none"
-                    value="Sudip Acharya"> </input>
-                <p class="text-2xl tracking-wider leading-none whitespace-nowrap">xxxx xxxx xxxx <input type="text"
-                        class="bg-transparent w-14 focus:outline-none text-xl" value="0712"></p>
-                <p class="translate-x-10 translate-y-2 leading-none flex items-center gap-2 text-sm text-gray-400">VALID
-                    <br>THRU <input type="text" class="bg-transparent w-14 focus:outline-none text-lg" value="00/26">
+                <p class="absolute top-7 opacity-20 right-7 uppercase font-semibold text-xl">Vanish Bank</p>
+                <p class="text-2xl tracking-wider leading-none whitespace-nowrap">xxxx xxxx xxxx <input type="number"
+                        class="bg-transparent w-14 focus:outline-none text-xl card-number" max="4" value="1234"
+                        oninput="this.value = this.value.slice(0, 4)">
                 </p>
+                <p class="translate-x-10 translate-y-2 leading-none flex items-center gap-2 text-sm text-gray-400">VALID
+                    <br>THRU <input type="text" class="bg-transparent w-14 focus:outline-none text-lg valid-thru"
+                        value="00/00">
+                </p>
+                <input type="text"
+                    class="text-xl leading-none bg-transparent absolute bottom-4 w-fit focus:outline-none holder-name"
+                    value="CardHolder Name"> </input>
             </div>
             <div class="close opacity-0 duration-300 absolute right-10 -bottom-10">
                 <i class="ri-check-double-line text-3xl z-10"></i>
             </div>
         </div>
     </div>
-    <div class=" h-fit yyy  w-full py-4 flex flex-col items-center justify-center gap-2">
+    <div class=" h-fit ttt  w-full py-4 flex flex-col items-center justify-center gap-2">
         <p class="text-[11px] tracking-wider font-light text-gray-400">ENTER AMOUNT</p>
         <div
             class="amount text-2xl font-semibold py-3 px-5 bg-gray-700/60 rounded-full flex items-center justify-center">
-            <p>$ <span>271.00</span></p>
+            <p>$ <span class="amount-inp">00</span></p>
         </div>
     </div>
-    <div class="buttons ttt  px-4 pb-4  grid gap-y-[3vh] mt-4 w-full ">
-        <div class="button h-full w-full flex items-center group justify-center text-[8vw]">
+    <div class="buttons ttt  px-8 pb-4  grid gap-y-[3vh] mt-4 w-full ">
+        <div data-num="1"
+            class="button h-full w-full flex items-center  rounded-full  justify-center text-[8vw] md:text-3xl">
             1
         </div>
-        <div class="button h-full w-full flex items-center group justify-center text-[8vw]">
+        <div data-num="2"
+            class="button h-full w-full flex items-center  rounded-full  justify-center text-[8vw] md:text-3xl">
             2
         </div>
-        <div class="button h-full w-full flex items-center group justify-center text-[8vw]">
+        <div data-num="3"
+            class="button h-full w-full flex items-center  rounded-full  justify-center text-[8vw] md:text-3xl">
             3
         </div>
-        <div class="button h-full w-full flex items-center group justify-center text-[8vw]">
+        <div data-num="4"
+            class="button h-full w-full flex items-center  rounded-full  justify-center text-[8vw] md:text-3xl">
             4
         </div>
-        <div class="button h-full w-full flex items-center group justify-center text-[8vw]">
+        <div data-num="5"
+            class="button h-full w-full flex items-center  rounded-full  justify-center text-[8vw] md:text-3xl">
             5
         </div>
-        <div class="button h-full w-full flex items-center group justify-center text-[8vw]">
+        <div data-num="6"
+            class="button h-full w-full flex items-center  rounded-full  justify-center text-[8vw] md:text-3xl">
             6
         </div>
-        <div class="button h-full w-full flex items-center group justify-center text-[8vw]">
+        <div data-num="7"
+            class="button h-full w-full flex items-center  rounded-full  justify-center text-[8vw] md:text-3xl">
             7
         </div>
-        <div class="button h-full w-full flex items-center group justify-center text-[8vw]">
+        <div data-num="8"
+            class="button h-full w-full flex items-center  rounded-full  justify-center text-[8vw] md:text-3xl">
             8
         </div>
-        <div class="button h-full w-full flex items-center group justify-center text-[8vw]">
+        <div data-num="9"
+            class="button h-full w-full flex items-center  rounded-full  justify-center text-[8vw] md:text-3xl">
             9
         </div>
-        <div class="button h-full w-full flex items-center group justify-center text-[8vw]">
-            .
+        <div class="del h-full w-full flex  items-center  rounded-full  justify-center text-[8vw] md:text-3xl">
+            <i class="ri-delete-back-2-line"></i>
         </div>
-        <div class="button h-full w-full flex items-center group justify-center text-[8vw]">
+        <div data-num="0"
+            class="button h-full w-full flex items-center  rounded-full  justify-center text-[8vw] md:text-3xl">
             0
         </div>
-        <div class="button h-full w-full flex items-center group justify-center text-[8vw]">
+        <div class="clr h-full w-full flex  items-center  rounded-full  justify-center text-[8vw] md:text-3xl">
             C
         </div>
 
     </div>
     <div class="swipe flex-col w-full h-36 p-4 flex  items-center">
+
         <div
             class="conter  overflow-hidden h-24 bg-black/40 rounded-full w-full flex items-center justify-start p-2 relative">
             <div style="background-color: rgb(107, 114, 128);"
@@ -127,8 +143,12 @@
                 <div class="conttt relative w-full h-full flex items-center justify-center">
                     <i class="init ri-arrow-right-line opacity-1 text-[40px] "></i>
                     <div class="payed h-full w-full flex items-center opacity-0 justify-center absolute">
-                        <div class="small h-12  w-2 bg-white rotate-[50deg]  translate-x-3"></div>
-                        <div class="big w-2 h-5  bg-white -rotate-45  -translate-x-4 translate-y-2"></div>
+                        <div
+                            class="small h-10 rounded-t-3xl rounded-br-3xl  w-2 bg-white rotate-[50deg]  translate-x-[10px] translate-y-[3px]">
+                        </div>
+                        <div
+                            class="big w-2 h-5 rounded-t-3xl rounded-bl-3xl bg-white -rotate-45  -translate-x-4 translate-y-2">
+                        </div>
                     </div>
 
                 </div>
@@ -141,30 +161,29 @@
     </div>
     <div
         class="details absolute  opacity-0 blur-[5px] -bottom-[35%]  bg-[linear-gradient(45deg,#333,#444)] p-5 py-6 w-[90%] rounded-3xl flex flex-col gap-2">
-        <div class="name flex items-center justify-between">
+        <div class=" flex items-center justify-between">
             <h1>Card Holder </h1>
-            <p>Sudip Acharya</p>
+            <p class="name">Sudip Acharya</p>
         </div>
-        <div class="number flex items-center justify-between">
+        <div class=" flex items-center justify-between">
             <h1>Card Number </h1>
-            <p>xxxx xxxx xxxx 0721</p>
+            <p">xxxx xxxx xxxx <span class="number"></span></p>
         </div>
-        <div class="id flex items-center justify-between">
+        <div class=" flex items-center justify-between">
             <h1>Payment Id </h1>
-            <p>4DXLQYZ3P</p>
+            <p class="pay-id">4DXLQYZ3P</p>
         </div>
-        <div class="amount flex items-center justify-between">
+        <div class=" flex items-center justify-between">
             <h1>Amount </h1>
-            <p>$<span>271.00</span></p>
+            <p>$<span class="amount-fi">271.00</span></p>
         </div>
-        <div class="date flex items-center justify-between">
+        <div class=" flex items-center justify-between">
             <h1>Payment Date </h1>
-            <p>19 Aug 2024</p>
+            <p class="pay-date">19 Aug 2024</p>
         </div>
         <div class="powered flex items-center gap-2 ">
             <h1>Powered by </h1>
             <img src="pngwing.com.png" class="h-10" alt="">
-            <img src="pngwing.com (1).png" class="h-14" alt="">
         </div>
         <a href="/"
             class="reload absolute w-full -ml-5 text-center text-lg py-2 mt-2 rounded-3xl bg-[#72BF20] font-semibold top-[100%]">
