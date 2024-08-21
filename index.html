@@ -29,7 +29,7 @@
         /* .yyy{
             transform: rotateX(15deg);
         } */
-        .hello {
+        .texts {
             color: transparent;
             background: linear-gradient(90deg, #444444, #444, #e5e5e5, #444);
             background-clip: text;
@@ -51,7 +51,7 @@
 </head>
 
 <body
-    class="bg-[#111] text-[#e5e5e5] md:max-w-md overflow-hidden font-[sfpro] pt-5 flex items-center relative  flex-col ">
+    class="bg-[#111] text-[#e5e5e5] md:max-w-md overflow-x-hidden font-[sfpro] pt-5 flex items-center relative  flex-col ">
     <div class="display yyy h-56 flex items-center justify-center w-full duration-700 relative">
 
 
@@ -66,8 +66,9 @@
                         oninput="this.value = this.value.slice(0, 4)">
                 </p>
                 <p class="translate-x-10 translate-y-2 leading-none flex items-center gap-2 text-sm text-gray-400">VALID
-                    <br>THRU <input type="text" class="bg-transparent w-14 focus:outline-none text-lg valid-thru"
-                        value="00/00">
+                    <br>THRU <input type="text" inputmode="numeric"
+                        class="bg-transparent w-14 focus:outline-none text-lg valid-thru" oninput="formatInput(this)"
+                        placeholder="00/00">
                 </p>
                 <input type="text"
                     class="text-xl leading-none bg-transparent absolute bottom-4 w-fit focus:outline-none holder-name"
@@ -139,7 +140,7 @@
         <div
             class="conter  overflow-hidden h-24 bg-black/40 rounded-full w-full flex items-center justify-start p-2 relative">
             <div style="background-color: rgb(107, 114, 128);"
-                class="swiper h-20 w-20 flex items-center justify-center  rounded-full">
+                class="swiper z-10 h-20 w-20 flex items-center justify-center  rounded-full">
                 <div class="conttt relative w-full h-full flex items-center justify-center">
                     <i class="init ri-arrow-right-line opacity-1 text-[40px] "></i>
                     <div class="payed h-full w-full flex items-center opacity-0 justify-center absolute">
@@ -153,14 +154,20 @@
 
                 </div>
             </div>
-            <p class="absolute hello left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 text-lg ">Swipe
-                to Confirm</p>
+            <div
+                class=" hello w-full flex overflow-hidden justify-center   absolute h-8  left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div class="alert flex flex-col absolute items-center w-full">
+                    <p class="texts texts-1 -z-10 text-lg ">Swipe
+                        to Confirm</p>
+                    <p class="texts-2 scale-90 -z-10 text-lg text-red-500">Fill up the Details</p>
+                </div>
+            </div>
         </div>
     </div>
 
     </div>
     <div
-        class="details absolute  opacity-0 blur-[5px] -bottom-[35%]  bg-[linear-gradient(45deg,#333,#444)] p-5 py-6 w-[90%] rounded-3xl flex flex-col gap-2">
+        class="details hidden absolute  opacity-0 blur-[20px] -bottom-[35%]  bg-[linear-gradient(45deg,#333,#444)] p-5 py-6 w-[90%] rounded-3xl flex flex-col gap-2">
         <div class=" flex items-center justify-between">
             <h1>Card Holder </h1>
             <p class="name">Sudip Acharya</p>

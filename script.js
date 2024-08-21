@@ -165,8 +165,10 @@ window.addEventListener("touchmove", (dets) => {
                     tl.to(".init", {
                         opacity: 0
                     }, "a")
+                    
                     tl.to(".details", {
-                        bottom: `0%`
+                        bottom: `0%`,
+                        display:`flex`
                     }, "a")
                     tl.to(".details", {
                         duration: 0.6,
@@ -178,7 +180,46 @@ window.addEventListener("touchmove", (dets) => {
                 else {
                     hhss()
                     started = false
+                    let pp = gsap.timeline({
+                        repeat: 1,
+                        onComplete: () => {
+                            gsap.to(".texts-1", {
+                                y: `0%`,
+                                duration: 0.3,
+                                scale: 1,
+                                delay: 1
+                            })
+                            gsap.to(".texts-2", {
+                                y: `0%`,
+                                duration: 0.3,
+                                scale: 0.8,
+                                delay: 1
+                            })
+                        }
+                    })
                     let kdl = gsap.timeline()
+                    gsap.to(".texts-1", {
+                        y: `-100%`,
+                        duration: 0.3,
+                        scale: 0.8
+                    })
+                    gsap.to(".texts-2", {
+                        y: `-100%`,
+                        duration: 0.3,
+                        scale: 1
+                    })
+                    pp.to(".hello", {
+                        x: -7,
+                        duration: 0.05,
+                    })
+                    pp.to(".hello", {
+                        x: 7,
+                        duration: 0.1
+                    })
+                    pp.to(".hello", {
+                        x: 0,
+                        duration: 0.05
+                    })
                     kdl.to(".swiper", {
                         x: 0,
                         duration: 0.4,
@@ -215,7 +256,7 @@ let sts = false
 display.addEventListener("click", () => {
     if (!sts) {
         display.classList.add("h-screen", "-mt-14")
-        display.classList.remove("h-64")
+        display.classList.remove("h-56")
         document.querySelector(".close").classList.remove("opacity-0")
         document.querySelector(".close").classList.add("opacity-1")
         sts = true
@@ -225,10 +266,24 @@ document.querySelector(".close").addEventListener("click", (e) => {
     e.stopPropagation()
     if (sts) {
         display.classList.remove("h-screen", "-mt-14")
-        display.classList.add("h-64")
+        display.classList.add("h-56")
         document.querySelector(".close").classList.remove("opacity-1")
         document.querySelector(".close").classList.add("opacity-0")
         sts = false
     }
 })
 
+
+
+
+function formatInput(input) {
+    // Remove any non-digit characters
+    let value = input.value.replace(/\D/g, '');
+
+    // Format the value as MM/YY
+    if (value.length > 2) {
+        input.value = value.slice(0, 2) + '/' + value.slice(2, 4);
+    } else {
+        input.value = value;
+    }
+}
