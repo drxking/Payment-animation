@@ -259,6 +259,7 @@ display.addEventListener("click", () => {
         display.classList.remove("h-56")
         document.querySelector(".close").classList.remove("opacity-0")
         document.querySelector(".close").classList.add("opacity-1")
+        document.body.style.overflow = `hidden`
         sts = true
     }
 })
@@ -269,6 +270,7 @@ document.querySelector(".close").addEventListener("click", (e) => {
         display.classList.add("h-56")
         document.querySelector(".close").classList.remove("opacity-1")
         document.querySelector(".close").classList.add("opacity-0")
+        document.body.style.overflow = `auto`
         sts = false
     }
 })
