@@ -165,10 +165,10 @@ window.addEventListener("touchmove", (dets) => {
                     tl.to(".init", {
                         opacity: 0
                     }, "a")
-                    
+
                     tl.to(".details", {
                         bottom: `0%`,
-                        display:`flex`
+                        display: `flex`
                     }, "a")
                     tl.to(".details", {
                         duration: 0.6,
@@ -289,3 +289,25 @@ function formatInput(input) {
         input.value = value;
     }
 }
+let body = document.querySelector("body")
+let overplay = document.querySelector(".overplay")
+if (window.innerWidth < 440) {
+    overplay.style.opacity = "0"
+    overplay.style.pointerEvents = "none"
+    body.style.overflow = `auto`
+}
+
+window.addEventListener("resize", (e) => {
+    console.log(window.innerWidth)
+    if (window.innerWidth < 440) {
+        overplay.style.opacity = "0"
+        overplay.style.pointerEvents = "none"
+        body.style.overflow = `auto`
+    } else {
+        overplay.style.opacity = "1"
+        overplay.style.pointerEvents = "all"
+        body.style.overflow = `hidden`
+
+        window.scrollTo(0, 0)
+    }
+})
